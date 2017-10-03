@@ -5,30 +5,19 @@
     <title> ScrollTrigger Demo </title>
     
     <style>
-        html, body
-        {
-          padding: 0;
-          margin: 0;
-        }
-        
-        html
-        {
-              height: 100%;
-        }
-        
-        body
-        {
-              min-height: 100%;
-        }
-        
         .bigDiv
         {
             min-height: 100vh;
         }
         
-        .bigDiv
+        .bigDiv h1
         {
-            min-height: 100vh;
+            padding-top: 40px;
+        }
+        
+        .hidden
+        {
+            opacity: 0;
         }
         
         .animation
@@ -48,7 +37,10 @@
     <div class="bigDiv">
         <h1>Some nice text</h1>
     </div>
-    <div class="bigDiv">
+    <div class="bigDiv hidden">
+        <h1>Some nice text</h1>
+    </div>
+    <div id='div2' class="bigDiv hidden">
         <h1>Some nice text</h1>
     </div>
 </body>
