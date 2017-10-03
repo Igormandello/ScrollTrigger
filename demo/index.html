@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> ScrollTrigger Demo </title>
+    
+    <style>
+        html, body
+        {
+          padding: 0;
+          margin: 0;
+        }
+        
+        html
+        {
+              height: 100%;
+        }
+        
+        body
+        {
+              min-height: 100%;
+        }
+        
+        .bigDiv
+        {
+            min-height: 100vh;
+        }
+        
+        .bigDiv
+        {
+            min-height: 100vh;
+        }
+        
+        .animation
+        {
+            padding-left: 200px;
+            animation: move 2s;
+        }
+        
+        @keyframes move
+        {
+            from { padding-left: 0; opacity: 0; }
+            to { padding-left: 200px; opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bigDiv">
+        <h1>Some nice text</h1>
+    </div>
+    <div class="bigDiv">
+        <h1>Some nice text</h1>
+    </div>
+</body>
+
+<script src="../scripts/jquery-3.2.1.min.js"></script>
+<script src="../src/ScrollTrigger.js"></script>
+<script src="script.js"></script>
+
+</html>
