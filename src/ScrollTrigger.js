@@ -6,7 +6,15 @@ function ScrollManager()
             if (this.objects[n].returnable)
               if (this.activated[n])
               {
-                if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() > 0)
+                if (elementFixed(this.objects[n].object))
+                {
+                  if (this.objects[n].object[0].getBoundingClientRect().y + this.objects[n].object.height() - $(window).scrollTop() > 0)
+                  {
+                    this.activated[n] = false;
+                    this.animations[n](this.activated[n]);
+                  }
+                }
+                else if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() > 0)
                 {
                   this.activated[n] = false;
                   this.animations[n](this.activated[n]);
@@ -14,7 +22,15 @@ function ScrollManager()
               }  
               else
               {
-                if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() < 0)
+                if (elementFixed(this.objects[n].object))
+                {
+                  if (this.objects[n].object[0].getBoundingClientRect().y + this.objects[n].object.height() - $(window).scrollTop() < 0)
+                  {
+                    this.activated[n] = true;
+                    this.animations[n](this.activated[n]);
+                  }
+                }
+                else if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() < 0)
                 {
                     this.activated[n] = true;
                     this.animations[n](this.activated[n]);
@@ -51,3 +67,16 @@ ScrollManager.prototype.addReturnableSection = function(strQuery, fn)
 }
 
 ScrollManager.offsetTop = 0.4;
+
+function elementFixed(el) 
+{
+    parentsCheck = el.add(el.parents());
+  
+    var fixed = false;
+    parentsCheck.each(function() {
+        if ($(this).css("position") === "fixed") 
+            fixed = true;
+    });
+  
+    return fixed;
+}
