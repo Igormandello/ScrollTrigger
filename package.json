@@ -1,0 +1,23 @@
+{
+  "name": "scroll-trigger",
+  "version": "1.0.0",
+  "description": "A JavaScript scroll manager for interactive pages",
+  "main": "src/ScrollTrigger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igormandello/ScrollTrigger.js.git"
+  },
+  "keywords": [
+    "Interactive",
+    "Scroll"
+  ],
+  "author": "Igor Mandello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Igormandello/ScrollTrigger.js/issues"
+  },
+  "homepage": "https://github.com/Igormandello/ScrollTrigger.js#readme"
+}
