@@ -2,7 +2,7 @@
   "name": "@igormandello/scroll-trigger",
   "version": "1.0.0",
   "description": "A JavaScript scroll manager for interactive pages",
-  "main": "src/ScrollTrigger.js",
+  "main": "./index.js",
   "scripts": {
     "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
