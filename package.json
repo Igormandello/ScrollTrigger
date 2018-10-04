@@ -1,5 +1,5 @@
 {
-  "name": "scroll-trigger",
+  "name": "@igormandello/scroll-trigger",
   "version": "1.0.0",
   "description": "A JavaScript scroll manager for interactive pages",
   "main": "src/ScrollTrigger.js",
