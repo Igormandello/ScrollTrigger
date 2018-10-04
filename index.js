@@ -75,4 +75,4 @@ function elementFixed(el) {
   return fixed;
 }
 
-exports.modules = ScrollManager;
+module.exports = ScrollManager;
