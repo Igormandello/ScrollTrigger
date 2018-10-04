@@ -16,11 +16,11 @@ function ScrollManager() {
           }
         } else {
           if (elementFixed(this.objects[n].object)) {
-            if (this.objects[n].object[0].getBoundingClientRect().y + this.objects[n].object.height() - $(window).scrollTop() < 0) {
+            if (this.objects[n].object[0].getBoundingClientRect().y + this.objects[n].object.height() - $(window).scrollTop() <= 0) {
               this.activated[n] = true;
               this.animations[n](this.activated[n]);
             }
-          } else if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() < 0) {
+          } else if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() <= 0) {
             this.activated[n] = true;
             this.animations[n](this.activated[n]);
           }
