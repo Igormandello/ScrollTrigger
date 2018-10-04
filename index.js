@@ -33,6 +33,7 @@ function ScrollManager() {
           this.activated[n] = true;
         }
   }
+  
   $(document).scroll(this.scrollCheck);
 }
 
@@ -45,6 +46,7 @@ ScrollManager.prototype.addSection = function (strQuery, fn) {
     object: $(strQuery),
     returnable: false
   });
+
   this.activated.push(false);
   this.animations.push(fn);
 }
@@ -54,6 +56,7 @@ ScrollManager.prototype.addReturnableSection = function (strQuery, fn) {
     object: $(strQuery),
     returnable: true
   });
+
   this.activated.push(false);
   this.animations.push(fn);
 }
@@ -61,9 +64,9 @@ ScrollManager.prototype.addReturnableSection = function (strQuery, fn) {
 ScrollManager.offsetTop = 0.4;
 
 function elementFixed(el) {
-  parentsCheck = el.add(el.parents());
+  let parentsCheck = el.add(el.parents());
 
-  var fixed = false;
+  let fixed = false;
   parentsCheck.each(function () {
     if ($(this).css("position") === "fixed")
       fixed = true;
