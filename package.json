@@ -4,6 +4,7 @@
   "description": "A JavaScript scroll manager for interactive pages",
   "main": "src/ScrollTrigger.js",
   "scripts": {
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/Igormandello/ScrollTrigger.js/issues"
   },
-  "homepage": "https://github.com/Igormandello/ScrollTrigger.js#readme"
+  "homepage": "https://github.com/Igormandello/ScrollTrigger.js#readme",
+  "dependencies": {
+    "http": "^0.0.0",
+    "jquery": "^3.3.1"
+  }
 }
