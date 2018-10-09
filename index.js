@@ -1,39 +1,43 @@
-const $ = require('jquery');
+'use strict';
+
+var $ = require('jquery');
 
 function ScrollManager() {
-  this.scrollCheck = () => {
-    for (let n = 0; n < this.activated.length; n++)
-      if (this.objects[n].returnable)
-        if (this.activated[n]) {
-          if (elementFixed(this.objects[n].object)) {
-            if (this.objects[n].object[0].getBoundingClientRect().y + this.objects[n].object.height() - $(window).scrollTop() > 0) {
-              this.activated[n] = false;
-              this.animations[n](this.activated[n]);
+  var _this = this;
+
+  this.scrollCheck = function () {
+    for (var n = 0; n < _this.activated.length; n++) {
+      if (_this.objects[n].returnable) {
+        if (_this.activated[n]) {
+          if (elementFixed(_this.objects[n].object)) {
+            if (_this.objects[n].object[0].getBoundingClientRect().y + _this.objects[n].object.height() - $(window).scrollTop() > 0) {
+              _this.activated[n] = false;
+              _this.animations[n](_this.activated[n]);
             }
-          } else if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() > 0) {
-            this.activated[n] = false;
-            this.animations[n](this.activated[n]);
+          } else if (_this.objects[n].object.offset().top + _this.objects[n].object.height() - $(window).scrollTop() > 0) {
+            _this.activated[n] = false;
+            _this.animations[n](_this.activated[n]);
           }
         } else {
-          if (elementFixed(this.objects[n].object)) {
-            if (this.objects[n].object[0].getBoundingClientRect().y + this.objects[n].object.height() - $(window).scrollTop() <= 0) {
-              this.activated[n] = true;
-              this.animations[n](this.activated[n]);
+          if (elementFixed(_this.objects[n].object)) {
+            if (_this.objects[n].object[0].getBoundingClientRect().y + _this.objects[n].object.height() - $(window).scrollTop() <= 0) {
+              _this.activated[n] = true;
+              _this.animations[n](_this.activated[n]);
             }
-          } else if (this.objects[n].object.offset().top + this.objects[n].object.height() - $(window).scrollTop() <= 0) {
-            this.activated[n] = true;
-            this.animations[n](this.activated[n]);
+          } else if (_this.objects[n].object.offset().top + _this.objects[n].object.height() - $(window).scrollTop() <= 0) {
+            _this.activated[n] = true;
+            _this.animations[n](_this.activated[n]);
           }
-        } 
-      else if (!this.activated[n])
-        if (this.objects[n].object.offset().top - $(window).scrollTop() <= $(window).height() * (1 - ScrollManager.offsetTop)) {
-          this.objects[n].object.removeClass('hidden');
-
-          this.animations[n]();
-          this.activated[n] = true;
         }
-  }
-  
+      } else if (!_this.activated[n]) if (_this.objects[n].object.offset().top - $(window).scrollTop() <= $(window).height() * (1 - ScrollManager.offsetTop)) {
+        _this.objects[n].object.removeClass('hidden');
+
+        _this.animations[n]();
+        _this.activated[n] = true;
+      }
+    }
+  };
+
   $(document).scroll(this.scrollCheck);
 }
 
@@ -49,7 +53,7 @@ ScrollManager.prototype.addSection = function (strQuery, fn) {
 
   this.activated.push(false);
   this.animations.push(fn);
-}
+};
 
 ScrollManager.prototype.addReturnableSection = function (strQuery, fn) {
   this.objects.push({
@@ -59,17 +63,16 @@ ScrollManager.prototype.addReturnableSection = function (strQuery, fn) {
 
   this.activated.push(false);
   this.animations.push(fn);
-}
+};
 
 ScrollManager.offsetTop = 0.4;
 
 function elementFixed(el) {
-  let parentsCheck = el.add(el.parents());
+  var parentsCheck = el.add(el.parents());
 
-  let fixed = false;
+  var fixed = false;
   parentsCheck.each(function () {
-    if ($(this).css("position") === "fixed")
-      fixed = true;
+    if ($(this).css("position") === "fixed") fixed = true;
   });
 
   return fixed;
