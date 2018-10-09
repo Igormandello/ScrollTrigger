@@ -1,6 +1,6 @@
 {
   "name": "@igormandello/scroll-trigger",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A JavaScript scroll manager for interactive pages",
   "main": "./index.js",
   "scripts": {
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/Igormandello/ScrollTrigger.js#readme",
   "dependencies": {
-    "http": "^0.0.0",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
